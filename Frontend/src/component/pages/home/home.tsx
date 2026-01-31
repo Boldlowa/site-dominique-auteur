@@ -7,7 +7,7 @@ import { NextEvent } from "./nextEvent";
 export function Home() {
   return (
     <Grid container direction="column">
-      <h1>Bienvenue sur le site de Dominique de Loppinot</h1>
+      <h1>Bienvenue sur le site de Dominique de Loppinot aaaaaaaahhhhhh</h1>
       <Grid container justifyContent="center">
         <Grid size={10}>
           <CoupDeCoeur />
