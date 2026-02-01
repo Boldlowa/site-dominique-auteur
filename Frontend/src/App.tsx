@@ -1,9 +1,10 @@
-import { Box, Container, Grid } from "@mui/material";
+import { Box} from "@mui/material";
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import { Header } from "./component/commons/header";
 import { Home } from "./component/pages/home/home";
 import { Footer } from "./component/commons/footer";
+import { Livres } from "./component/pages/Livres/livres";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Box sx={{ padding: 2, width: "100%" }}>
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/livres" element={<Livres />} />
           </Routes>
         </Box>
         <Box width={"100%"}>
