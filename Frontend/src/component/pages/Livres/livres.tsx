@@ -1,4 +1,4 @@
-import { Box } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import { useLivres } from "../../../utils/livresContext";
 import { BookCard } from "../../commons/bookCard";
 
@@ -7,7 +7,7 @@ export function Livres() {
 
   return (
     <>
-      <h1>Mes Livres</h1>
+    <Typography variant="h2" align="center" marginTop={4}>Mes Livres</Typography>
 
       <Box
         display="grid"

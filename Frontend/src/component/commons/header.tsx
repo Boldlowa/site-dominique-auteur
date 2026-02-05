@@ -5,7 +5,7 @@ export function Header() {
   return (
     <AppBar color="primary">
       <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
-        <Typography variant="h5" component="div">
+        <Typography variant="h2" component="div">
           Dominique de Loppinot
         </Typography>
 

@@ -17,6 +17,7 @@ function App() {
         flexDirection={"column"}
         minHeight={"100vh"}
         mt={"64px"}
+        sx={(theme)=> ({backgroundColor:theme.palette.background.default})}
       >
         <Box sx={{ padding: 2, width: "100%" }}>
           <Routes>

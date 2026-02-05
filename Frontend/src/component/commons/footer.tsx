@@ -1,4 +1,4 @@
-import { Grid } from "@mui/material";
+import { Grid, Typography } from "@mui/material";
 
 export function Footer() {
   return (
@@ -8,12 +8,12 @@ export function Footer() {
       justifyContent="center"
       sx={{
         width: "100%",
-        bgcolor: "#1976d2",
+        bgcolor: "primary.main",
         color: "white",
         padding: 1,
       }}
     >
-      <h5>@Dominique de Lopptinot 2026</h5>
+      <Typography variant="body2">@Dominique de Lopptinot 2026</Typography>
     </Grid>
   );
 }

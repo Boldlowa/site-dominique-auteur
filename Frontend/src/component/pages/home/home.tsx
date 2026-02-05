@@ -4,6 +4,7 @@ import { Bubba } from "./bubba";
 import { Anatole } from "./anatole";
 import { NextEvent } from "./nextEvent";
 import { useLivres } from "../../../utils/livresContext";
+import { Typography } from "@mui/material";
 
 
 export function Home() {
@@ -12,9 +13,8 @@ export function Home() {
   console.log("Favorite Books:", favoriteList);
   return (
     <Grid container direction="column">
-      <h1>Bienvenue sur le site de Dominique de Loppinot</h1>
       <Grid container justifyContent="center">
-        <Grid size={10}>
+        <Grid size={10} marginTop={2}>
           <CoupDeCoeur favoriteList={favoriteList} />
         </Grid>
       </Grid>
