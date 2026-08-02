@@ -1,4 +1,4 @@
-import { Grid, Typography } from "@mui/material";
+import { Box, Grid, Typography } from "@mui/material";
 
 export function Footer() {
   return (
@@ -12,6 +12,7 @@ export function Footer() {
       }}
     >
       <Typography variant="body2">@Dominique de Lopptinot 2026</Typography>
-    </Grid>
+    </Box>
+
   );
 }

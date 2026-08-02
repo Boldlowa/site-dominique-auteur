@@ -1,8 +1,7 @@
-import { Box, Button, Grid, Typography } from "@mui/material";
-import ViewListIcon from '@mui/icons-material/ViewList';
-import AppsIcon from '@mui/icons-material/Apps';
+﻿import { Box, Button, Typography } from "@mui/material";
+import ViewListIcon from "@mui/icons-material/ViewList";
+import AppsIcon from "@mui/icons-material/Apps";
 import { useState } from "react";
-import { Box, Typography } from "@mui/material";
 import { useLivres } from "../../../utils/livresContext";
 import { BookCard } from "../../commons/bookCard";
 
@@ -11,11 +10,12 @@ export function Livres() {
   const [viewMode, setViewMode] = useState<"list" | "grid">("list");
 
   return (
-    <Box sx={{ display: "grid", gap: 3 }}>
+    <Box sx={{ display: "grid", gap: 3, p: 2 }}>
       <Box sx={{ display: "flex", flexWrap: "wrap", gap: 2, alignItems: "center" }}>
         <Typography variant="h4" component="h1" sx={{ fontWeight: 700 }}>
           Mes Livres
         </Typography>
+
         <Box sx={{ display: "flex", gap: 1, ml: "auto" }}>
           <Button
             variant={viewMode === "list" ? "contained" : "outlined"}
@@ -36,28 +36,26 @@ export function Livres() {
         </Box>
       </Box>
 
-      <Grid container spacing={3}>
-    <>
-    <Typography variant="h2" align="center" marginTop={4}>Mes Livres</Typography>
-
       <Box
-        display="grid"
-        gridTemplateColumns="repeat(4, 1fr)"
-        gap={16}
-        margin={20}
+        sx={{
+          display: "grid",
+          gap: 3,
+          gridTemplateColumns:
+            viewMode === "grid"
+              ? {
+                  xs: "repeat(1, minmax(0, 1fr))",
+                  sm: "repeat(2, minmax(0, 1fr))",
+                  md: "repeat(3, minmax(0, 1fr))",
+                }
+              : "repeat(1, minmax(0, 1fr))",
+        }}
       >
         {livres.map((livre) => (
-          <Grid
-            item
-            xs={12}
-            sm={viewMode === "grid" ? 6 : 12}
-            md={viewMode === "grid" ? 4 : 12}
-            key={livre.id}
-          >
+          <Box key={livre.id} sx={{ width: "100%" }}>
             <BookCard book={livre} variant={viewMode} />
-          </Grid>
+          </Box>
         ))}
-      </Grid>
+      </Box>
     </Box>
   );
 }

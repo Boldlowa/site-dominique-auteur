@@ -13,6 +13,7 @@ export function BookCard({
 }) {
   const isList = variant === "list";
   const truncated = truncateText(book.Resume, isList ? 110 : 90);
+  const imageUrl = book.publicImageUrl || "https://via.placeholder.com/360x220?text=Couverture+indisponible";
 
   return (
     <Card sx={{ padding: 2, marginBottom: 2 }}>
