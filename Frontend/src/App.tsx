@@ -13,10 +13,11 @@ function App() {
         <Header />
       </header>
       <Box
-        display="flex"
-        flexDirection="column"
-        minHeight="100vh"
-        sx={{ backgroundColor: "#f6f8fb" }}
+        display={"flex"}
+        flexDirection={"column"}
+        minHeight={"100vh"}
+        mt={"64px"}
+        sx={(theme)=> ({backgroundColor:theme.palette.background.default})}
       >
         <Container maxWidth="lg" sx={{ paddingTop: "88px", paddingBottom: 4, flexGrow: 1 }}>
           <Routes>

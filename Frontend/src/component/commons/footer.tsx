@@ -1,4 +1,4 @@
-import { Box, Typography } from "@mui/material";
+import { Box, Grid, Typography } from "@mui/material";
 
 export function Footer() {
   return (
@@ -6,15 +6,13 @@ export function Footer() {
       component="footer"
       sx={{
         width: "100%",
-        bgcolor: "#111827",
-        color: "#f8fafc",
-        py: 2,
-        textAlign: "center",
+        bgcolor: "primary.main",
+        color: "white",
+        padding: 1,
       }}
     >
-      <Typography variant="body2">
-        © 2026 Dominique de Loppinot
-      </Typography>
+      <Typography variant="body2">@Dominique de Lopptinot 2026</Typography>
     </Box>
+
   );
 }
