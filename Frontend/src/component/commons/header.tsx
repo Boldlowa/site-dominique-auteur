@@ -3,18 +3,9 @@ import { Link } from "react-router-dom";
 
 export function Header() {
   return (
-    <AppBar
-      position="fixed"
-      elevation={0}
-      sx={{
-        backgroundColor: "rgba(255,255,255,0.92)",
-        color: "#0f172a",
-        backdropFilter: "blur(18px)",
-        borderBottom: "1px solid rgba(15, 23, 42, 0.08)",
-      }}
-    >
-      <Toolbar sx={{ display: "flex", justifyContent: "space-between", flexWrap: "wrap", gap: 1 }}>
-        <Typography variant="h6" component="div" sx={{ fontWeight: 700 }}>
+    <AppBar color="primary">
+      <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
+        <Typography variant="h2" component="div">
           Dominique de Loppinot
         </Typography>
 

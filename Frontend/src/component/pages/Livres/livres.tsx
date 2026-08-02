@@ -2,6 +2,7 @@ import { Box, Button, Grid, Typography } from "@mui/material";
 import ViewListIcon from '@mui/icons-material/ViewList';
 import AppsIcon from '@mui/icons-material/Apps';
 import { useState } from "react";
+import { Box, Typography } from "@mui/material";
 import { useLivres } from "../../../utils/livresContext";
 import { BookCard } from "../../commons/bookCard";
 
@@ -36,6 +37,15 @@ export function Livres() {
       </Box>
 
       <Grid container spacing={3}>
+    <>
+    <Typography variant="h2" align="center" marginTop={4}>Mes Livres</Typography>
+
+      <Box
+        display="grid"
+        gridTemplateColumns="repeat(4, 1fr)"
+        gap={16}
+        margin={20}
+      >
         {livres.map((livre) => (
           <Grid
             item
