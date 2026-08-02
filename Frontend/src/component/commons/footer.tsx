@@ -1,19 +1,20 @@
-import { Grid } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 
 export function Footer() {
   return (
-    <Grid
-      container
-      alignItems="center"
-      justifyContent="center"
+    <Box
+      component="footer"
       sx={{
         width: "100%",
-        bgcolor: "#1976d2",
-        color: "white",
-        padding: 1,
+        bgcolor: "#111827",
+        color: "#f8fafc",
+        py: 2,
+        textAlign: "center",
       }}
     >
-      <h5>@Dominique de Lopptinot 2026</h5>
-    </Grid>
+      <Typography variant="body2">
+        © 2026 Dominique de Loppinot
+      </Typography>
+    </Box>
   );
 }

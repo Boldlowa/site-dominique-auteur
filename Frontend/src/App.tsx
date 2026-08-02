@@ -1,4 +1,4 @@
-import { Box} from "@mui/material";
+import { Box, Container } from "@mui/material";
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import { Header } from "./component/commons/header";
@@ -13,18 +13,18 @@ function App() {
         <Header />
       </header>
       <Box
-        display={"flex"}
-        flexDirection={"column"}
-        minHeight={"100vh"}
-        mt={"64px"}
+        display="flex"
+        flexDirection="column"
+        minHeight="100vh"
+        sx={{ backgroundColor: "#f6f8fb" }}
       >
-        <Box sx={{ padding: 2, width: "100%" }}>
+        <Container maxWidth="lg" sx={{ paddingTop: "88px", paddingBottom: 4, flexGrow: 1 }}>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/livres" element={<Livres />} />
           </Routes>
-        </Box>
-        <Box width={"100%"}>
+        </Container>
+        <Box width="100%">
           <Footer />
         </Box>
       </Box>
