@@ -37,7 +37,8 @@ export function BookCard({
 
       <CardMedia
         component="img"
-        src={imageUrl}
+        height={isList ? undefined : 220}
+        image={imageUrl}
         alt={book.Titre}
         loading="lazy"
         onError={(e: React.SyntheticEvent<HTMLImageElement, Event>) => {

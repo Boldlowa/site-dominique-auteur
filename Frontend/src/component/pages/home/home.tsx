@@ -30,7 +30,7 @@ export function Home() {
       </Paper>
 
       <Grid container spacing={4}>
-        <Grid item md={8}>
+        <Grid xs={12} md={8}>
           <CoupDeCoeur favoriteList={favoriteList} />
         </Grid>
         <Grid xs={12} md={4}>

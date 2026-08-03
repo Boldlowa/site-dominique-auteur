@@ -1,16 +1,12 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import type { Livre } from "../models";
 import { getAllBooks } from "./client";
+import { getSupabaseImageUrl } from "./supabaseClient";
 
 const STORAGE_KEY = "livresCache";
 const CACHE_VERSION = 2;
 
 interface LivresContextType {
-  livres: Livre[];
-}
-
-interface CachedLivres {
-  version: number;
   livres: Livre[];
 }
 
@@ -27,31 +23,31 @@ export const LivresProvider = ({ children }: { children: React.ReactNode }) => {
   const [livres, setLivres] = useState<Livre[]>([]);
 
   useEffect(() => {
-    const cached = sessionStorage.getItem(STORAGE_KEY);
-    if (cached) {
+    const cachedLivres = sessionStorage.getItem(STORAGE_KEY);
+    if (cachedLivres) {
       try {
-        const parsed = JSON.parse(cached) as CachedLivres;
+        const parsed = JSON.parse(cachedLivres) as CachedLivres;
         if (parsed.version === CACHE_VERSION && Array.isArray(parsed.livres)) {
           setLivres(parsed.livres);
           return;
         }
       } catch {
-        // ignore invalid cache
+        // invalid cache, ignore
       }
       sessionStorage.removeItem(STORAGE_KEY);
     }
 
     const fetchLivres = async () => {
       const data = await getAllBooks();
-      setLivres(data);
-      try {
-        sessionStorage.setItem(
-          STORAGE_KEY,
-          JSON.stringify({ version: CACHE_VERSION, livres: data })
-        );
-      } catch {
-        // sessionStorage may be unavailable or full; ignore
-      }
+      const booksWithImageUrl = data.map((book) => ({
+        ...book,
+        publicImageUrl: getSupabaseImageUrl(book.id),
+      }));
+      setLivres(booksWithImageUrl);
+      sessionStorage.setItem(
+        STORAGE_KEY,
+        JSON.stringify({ version: CACHE_VERSION, livres: booksWithImageUrl })
+      );
     };
 
     fetchLivres();
