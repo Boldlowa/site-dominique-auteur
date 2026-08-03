@@ -1,10 +1,9 @@
 import { Box, Button, Card, CardActions, CardContent, CardMedia, Typography } from "@mui/material";
 import type { Livre } from "../../models";
+import imgNotFound from "../../assets/imgNotFound.png";
 
 const truncateText = (text: string, max = 120) =>
   text.length > max ? `${text.slice(0, max).trimEnd()}…` : text;
-
-const PLACEHOLDER = "https://via.placeholder.com/360x480?text=Couverture+indisponible";
 
 export function BookCard({
   book,
@@ -15,7 +14,7 @@ export function BookCard({
 }) {
   const isList = variant === "list";
   const truncated = truncateText(book.Resume, isList ? 110 : 90);
-  const imageUrl = book.LienImage || PLACEHOLDER;
+  const imageUrl = book.LienImage || imgNotFound;
   return (
     <Card
       sx={{
@@ -43,7 +42,7 @@ export function BookCard({
         loading="lazy"
         onError={(e: React.SyntheticEvent<HTMLImageElement, Event>) => {
           e.currentTarget.onerror = null;
-          e.currentTarget.src = PLACEHOLDER;
+          e.currentTarget.src = imgNotFound;
         }}
         sx={{
           width: isList ? { xs: "100%", sm: 220 } : "100%",

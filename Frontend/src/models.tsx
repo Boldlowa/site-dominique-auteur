@@ -3,11 +3,11 @@ export interface Livre {
     Titre: string;
     Resume: string;
     LienPedagogique: string;
+    LienImage: string;
     LienAchat: string;
     Editeur: string;
     Dispo:boolean;
     Favorite?: boolean;
-    publicImageUrl?: string;
 }
 
 export interface Animation{

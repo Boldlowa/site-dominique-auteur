@@ -1,7 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import type { Livre } from "../models";
 import { getAllBooks } from "./client";
-import { getSupabaseImageUrl } from "./supabaseClient";
 
 const STORAGE_KEY = "livresCache";
 const CACHE_VERSION = 2;
@@ -41,7 +40,6 @@ export const LivresProvider = ({ children }: { children: React.ReactNode }) => {
       const data = await getAllBooks();
       const booksWithImageUrl = data.map((book) => ({
         ...book,
-        publicImageUrl: getSupabaseImageUrl(book.id),
       }));
       setLivres(booksWithImageUrl);
       sessionStorage.setItem(
