@@ -1,9 +1,10 @@
-import { Box, Grid, Typography, Paper } from "@mui/material";
+import { Box, Grid, Paper, Typography } from "@mui/material";
 import { CoupDeCoeur } from "./coupDeCoeur";
 import { Bubba } from "./bubba";
 import { Anatole } from "./anatole";
 import { NextEvent } from "./nextEvent";
 import { useLivres } from "../../../utils/livresContext";
+
 
 export function Home() {
   const { livres } = useLivres();
@@ -29,16 +30,16 @@ export function Home() {
       </Paper>
 
       <Grid container spacing={4}>
-        <Grid item xs={12} md={8}>
+        <Grid item md={8}>
           <CoupDeCoeur favoriteList={favoriteList} />
         </Grid>
-        <Grid item xs={12} md={4}>
+        <Grid xs={12} md={4}>
           <Anatole />
         </Grid>
-        <Grid item xs={12} md={4}>
+        <Grid xs={12} md={4}>
           <Bubba />
         </Grid>
-        <Grid item xs={12} md={8}>
+        <Grid xs={12} md={8}>
           <NextEvent />
         </Grid>
       </Grid>

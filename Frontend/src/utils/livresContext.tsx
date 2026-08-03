@@ -14,6 +14,11 @@ interface CachedLivres {
   livres: Livre[];
 }
 
+interface CachedLivres {
+  version: number;
+  livres: Livre[];
+}
+
 const LivresContext = createContext<LivresContextType>({
   livres: [],
 });
