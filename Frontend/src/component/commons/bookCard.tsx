@@ -4,6 +4,8 @@ import type { Livre } from "../../models";
 const truncateText = (text: string, max = 120) =>
   text.length > max ? `${text.slice(0, max).trimEnd()}…` : text;
 
+const PLACEHOLDER = "https://via.placeholder.com/360x480?text=Couverture+indisponible";
+
 export function BookCard({
   book,
   variant = "grid",
@@ -13,16 +15,17 @@ export function BookCard({
 }) {
   const isList = variant === "list";
   const truncated = truncateText(book.Resume, isList ? 110 : 90);
-
+  const imageUrl = book.LienImage || PLACEHOLDER;
   return (
     <Card
       sx={{
         display: "flex",
         flexDirection: isList ? { xs: "column", sm: "row" } : "column",
         width: "100%",
-        maxWidth: isList ? 960 : "100%",
+        maxWidth: isList ? 960 : 320,
         alignSelf: "stretch",
         height: "100%",
+        margin: isList ? undefined : "0 auto",
         boxShadow: "0 14px 35px rgba(15, 23, 42, 0.08)",
         transition: "transform 220ms ease, box-shadow 220ms ease",
         '&:hover': {
@@ -31,15 +34,25 @@ export function BookCard({
         },
       }}
     >
+
       <CardMedia
         component="img"
-        height={isList ? undefined : 220}
-        image={book.LienImage || "https://via.placeholder.com/360x220?text=Couverture+indisponible"}
+        src={imageUrl}
         alt={book.Titre}
+        loading="lazy"
+        onError={(e: React.SyntheticEvent<HTMLImageElement, Event>) => {
+          e.currentTarget.onerror = null;
+          e.currentTarget.src = PLACEHOLDER;
+        }}
         sx={{
           width: isList ? { xs: "100%", sm: 220 } : "100%",
-          height: isList ? { xs: 220, sm: 180 } : 220,
-          objectFit: "cover",
+          height: isList ? { xs: 220, sm: 180 } : "auto",
+          maxHeight: isList ? undefined : 480,
+          objectFit: "contain",
+          backgroundColor: "#f7fafc",
+          display: "block",
+          margin: "0 auto",
+          flexShrink: 0,
         }}
       />
       <Box sx={{ display: "flex", flexDirection: "column", flexGrow: 1 }}>
